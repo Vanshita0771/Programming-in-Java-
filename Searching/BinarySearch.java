@@ -1,7 +1,7 @@
 import java.util.*;
 public class BinarySearch {
 	public static int binSearch(int[] arr,int lb,int ub,int key) {
-		while(lb<ub) {
+		while(lb<=ub) {
 			int mid=(lb+ub)/2;
 			if(arr[mid]==key)
 				 return mid;
