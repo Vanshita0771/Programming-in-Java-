@@ -22,16 +22,22 @@ public class Main
         }
     }
     public static void kmpSearch(String txt,String pat){
-        int n=txt.length();
-        int m=pat.length();
+        int n=txt.length(); 
+        int m=pat.length();      
         int[] lps=new int[m];
         computeLps(pat,lps);
         int i=0;
         int j=0;
-        while(i<n&&j<m){
+        boolean flag=false;
+        while(i<n){                  
             if(txt.charAt(i)==pat.charAt(j)){
                 i++;
-                j++;
+                j++; //j==m 
+                if(j==m){
+                    System.out.println("Found at index "+(i-m));
+                    flag=true;
+                    j=lps[j-1];
+                }
             }
             else{
                 if(j!=0){
@@ -42,15 +48,10 @@ public class Main
                 }
             }
         }
-        if(j==m){ 
-            System.out.println("Found at index "+i-j);
-        }
-        else{
-            System.out.println("Not found");
-        }
-        
+       if(flag==false) 
+         System.out.println("Not found");
     }
 	public static void main(String[] args) {
-		kmpSearch("AAAAABBBBCAAABBCAAAR","AAD");
+		kmpSearch("chitkarauniversity","it"); 
 	}
 }
