@@ -66,6 +66,10 @@ class HashTable{
                currentSize++;
                return;
             }
+            if(keys[i].equals(key)){
+            values[i]=value;
+            return;
+           }
             i=(i+1)%maxSize;
         }
     }
