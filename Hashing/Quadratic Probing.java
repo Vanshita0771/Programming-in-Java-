@@ -94,7 +94,7 @@ class HashTable{
           }
           keys[i]=null;
           values[i]=null;
-          for(i=(i+h*h)%maxSize;keys!=null;i=(i+h*h++)%maxSize){
+          for(i=(i+h*h)%maxSize;keys[i]!=null;i=(i+h*h++)%maxSize){
               if(keys[i].equals(key)){
                   String t1=keys[i],t2=values[i];
                   keys[i]=values[i]=null;
