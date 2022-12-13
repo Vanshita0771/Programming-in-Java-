@@ -1,0 +1,41 @@
+import java.util.*;
+public class Main
+   {   
+    static ArrayList<Integer> arr=new ArrayList<>();
+    static  PriorityQueue<Integer> p=new PriorityQueue<>(Comparator.reverseOrder());
+    public static void minStream(int data,int k){
+      
+        if(k>p.size())
+         {
+            p.add(data);
+            if(k==p.size())
+              arr.add(p.peek());
+             
+            else
+             arr.add(-1);
+             
+         }
+         
+         else{
+        
+             if(data<p.peek()){
+                 p.remove();
+                 p.add(data);
+             }
+              arr.add(p.peek());
+         }
+    }
+	public static void main(String[] args) {
+		
+		minStream(43,3);
+		minStream(37,3);
+		minStream(27,3);
+		minStream(15,3);
+		minStream(53,3);
+		minStream(18,3);
+		minStream(58,3);
+		for(int i=0;i<arr.size();i++)
+		 System.out.print(arr.get(i)+" ");
+		
+	}
+}
