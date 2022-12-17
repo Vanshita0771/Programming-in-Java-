@@ -64,7 +64,7 @@ class HashTable{
      public String search(String key){
           int hashKey=hash(key);
           int i=hashKey;
-          int h=1;
+          int h=0;
           
           do{
              if(keys[i]==null){
